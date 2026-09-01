@@ -78,7 +78,12 @@ body.menu-open .hdr { z-index: 130; background: transparent; box-shadow: none; }
   height: var(--hdr-h); display: flex; align-items: center; gap: 28px;
 }
 .logo { display: inline-flex; align-items: center; gap: 10px; position: relative; z-index: 130; }
-.logo-mark { width: 34px; height: 34px; flex: none; }
+.logo-mark {
+  width: 40px; height: 40px; flex: none; color: #fff;
+  transition: color .35s, transform .55s cubic-bezier(.2,.8,.2,1);
+}
+.logo:hover .logo-mark { color: var(--amber); transform: rotate(-8deg) scale(1.06); }
+.foot .logo-mark { width: 54px; height: 54px; color: var(--amber); }
 .logo-word {
   font-family: var(--f-disp); font-weight: 800; font-size: 17px; letter-spacing: .05em; color: #fff;
   display: inline-flex; align-items: baseline; gap: 6px;
@@ -465,6 +470,8 @@ a.cont-card:hover .cont-a { color: var(--amber2); }
   .hdr-in { gap: 12px; width: calc(100% - 32px); }
   .hdr-right { gap: 10px; }
   .logo { gap: 8px; }
+  .logo-mark { width: 34px; height: 34px; }
+  .foot .logo-mark { width: 46px; height: 46px; }
   .logo-word { font-size: 15px; }
   .logo-word b { display: none; }
   .lang button { padding: 6px 11px; }
