@@ -221,8 +221,7 @@ body.menu-open .mnav-links a { opacity: 1; transform: none; }
 section[id], article[id] { scroll-margin-top: calc(var(--hdr-h) + 18px); }
 .sec-head { margin-bottom: clamp(38px, 5vw, 58px); }
 .idx { display: flex; align-items: center; gap: 14px; font-size: 12.5px; letter-spacing: .2em; color: var(--amber); margin-bottom: 16px; }
-.idx b { font-weight: 600; }
-.idx-line { display: inline-block; width: 46px; height: 1.5px; background: var(--amber); transform-origin: left; }
+.idx-line { display: inline-block; width: 34px; height: 1.5px; background: var(--amber); transform-origin: left; }
 h2 { font-size: clamp(30px, 4.6vw, 58px); font-weight: 800; color: #fff; letter-spacing: .005em; }
 .sec-lead { font-size: clamp(15.5px, 1.3vw, 18px); color: var(--txt-dim); margin-top: 14px; }
 
@@ -242,7 +241,7 @@ h2 { font-size: clamp(30px, 4.6vw, 58px); font-weight: 800; color: #fff; letter-
 .svc-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(185deg, rgba(11, 16, 23, .18) 30%, rgba(11, 16, 23, .88) 82%); transition: background .5s; }
 .svc:hover .svc-img { transform: scale(1.06); filter: saturate(1.12); }
 .svc-top {
-  position: absolute; top: 18px; left: 20px; right: 20px; display: flex; justify-content: flex-start;
+  position: absolute; top: 18px; left: 20px; right: 22px; display: flex; justify-content: flex-end;
   font-size: 12px; color: rgba(255, 255, 255, .85); letter-spacing: .18em;
 }
 .svc-top b { color: var(--amber2); font-weight: 600; }
