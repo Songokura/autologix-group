@@ -6,6 +6,18 @@
 
   var WA_PHONE = '971558708364';
 
+  /* ---------- КОНВЕРСИИ GOOGLE ADS ----------
+     Один хелпер на все цели: если gtag ещё не загрузился (блокировщик,
+     медленная сеть) - молча выходим, переход по ссылке не ломаем. */
+  function algConversion(label) {
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'conversion', {
+      send_to: 'AW-18435765004/' + label,
+      value: 1.0,
+      currency: 'USD'
+    });
+  }
+
   /* ---------- СЛОВАРИ ---------- */
   var I18N = {
     ru: {
@@ -399,6 +411,7 @@
         .replace('{name}', name)
         .replace('{phone}', phone)
         .replace('{cargo}', cargo);
+      algConversion('htCgCK6OufAcEIzm7dZE');
       window.open('https://wa.me/' + WA_PHONE + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
       form.hidden = true;
       thanks.hidden = false;
@@ -406,16 +419,18 @@
   }
 
   /* ---------- ДЕЛЕГИРОВАННЫЕ КЛИКИ TEL / WHATSAPP ----------
-     Чистые обработчики: сюда позже будут повешены gtag-конверсии. */
+     Конверсии Google Ads, аккаунт AW-18435765004.
+     Ярлыки: телефон - xIyUCOqCwfAcEIzm7dZE, форма - htCgCK6OufAcEIzm7dZE,
+     контакт (WhatsApp) - NMo_CJjtw_AcEIzm7dZE. */
   document.addEventListener('click', function (e) {
     var tel = e.target.closest('a[href^="tel:"]');
     if (tel) {
-      /* gtag('event', 'conversion', { send_to: 'AW-XXX/tel' }); */
+      algConversion('xIyUCOqCwfAcEIzm7dZE');
       return;
     }
     var wa = e.target.closest('a[href*="wa.me"]');
     if (wa) {
-      /* gtag('event', 'conversion', { send_to: 'AW-XXX/whatsapp' }); */
+      algConversion('NMo_CJjtw_AcEIzm7dZE');
       return;
     }
   });
