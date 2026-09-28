@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700;800&family=Onest:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20260928-3">
+  <link rel="stylesheet" href="styles.css?v=20260928-4">
 
   <script type="application/ld+json">
   {
@@ -230,9 +230,18 @@
       </div>
       <div class="pr-grid">
         <div class="pr-calc reveal">
-          <div class="pr-top"><span class="pr-route mono">DXB → KZ</span><span class="pr-kg"><b id="prKg">5</b> <span data-i18n="pr.kg">кг</span></span></div>
+          <div class="pr-dest" id="prDest" role="group" aria-label="Destination" hidden>
+            <button type="button" data-dest="kz" class="is-active" aria-pressed="true" data-i18n="pr.d.kz">Казахстан</button>
+            <button type="button" data-dest="ru" aria-pressed="false" data-i18n="pr.d.ru">Россия</button>
+            <button type="button" data-dest="other" aria-pressed="false" data-i18n="pr.d.other">Другие страны</button>
+          </div>
+          <div class="pr-top"><span class="pr-route mono" id="prRoute">DXB → KZ</span><span class="pr-kg"><b id="prKg">5</b> <span data-i18n="pr.kg">кг</span></span></div>
           <input class="pr-range" type="range" id="prRange" min="1" max="20" step="1" value="5" aria-label="Вес посылки, кг" data-i18n-aria="pr.aria">
-          <div class="pr-scale mono" aria-hidden="true"><span>1</span><span>20</span></div>
+          <div class="pr-scale mono" aria-hidden="true"><span>1</span><span id="prMax">20</span></div>
+          <div class="pr-quote" id="prQuote" hidden>
+            <b data-i18n="pr.q.t">Расчёт по заявке</b>
+            <p data-i18n="pr.q.d">Европа, Азия, Америка, СНГ - назовём цену и сроки за 15 минут.</p>
+          </div>
           <div class="pr-sum"><b id="prUsd">$96</b><span id="prKzt">42 420 ₸</span></div>
           <button class="btn btn-amber btn-lg btn-full js-lead" type="button" data-svc="Курьерская доставка" data-weight="range"><span data-i18n="pr.cta">Отправить посылку</span></button>
           <p class="pr-note" data-i18n="pr.note">Цена за всю посылку до двери. Больше 20 кг, грузы и выкуп товаров - рассчитаем за 15 минут.</p>
@@ -384,6 +393,7 @@
                 <select id="fDir" name="Направление" required>
                   <option value="" data-i18n="f.pick">Выберите</option>
                   <option value="Казахстан" data-i18n="f.kz">Казахстан</option>
+                  <option value="Россия" data-i18n="f.ru">Россия</option>
                   <option value="Другая страна" data-i18n="f.other">Другая страна</option>
                 </select>
                 <label for="fDir" data-i18n="f.dir">Куда везём</label>
@@ -496,6 +506,7 @@
                 <select id="mDir" name="Направление" required>
                   <option value="" data-i18n="f.pick">Выберите</option>
                   <option value="Казахстан" data-i18n="f.kz">Казахстан</option>
+                  <option value="Россия" data-i18n="f.ru">Россия</option>
                   <option value="Другая страна" data-i18n="f.other">Другая страна</option>
                 </select>
                 <label for="mDir" data-i18n="f.dir">Куда везём</label>
@@ -522,6 +533,6 @@
   </div>
 </div>
 
-<script src="script.js?v=20260928-3"></script>
+<script src="script.js?v=20260928-4"></script>
 </body>
 </html>

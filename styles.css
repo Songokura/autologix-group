@@ -598,3 +598,20 @@ body.lm-open { overflow: hidden; }
   .f-row { grid-template-columns: 1fr; }
   .lm-box { padding: 28px 18px 20px; border-radius: 20px; }
 }
+
+/* направления в английской версии: Казахстан / Россия / другие страны */
+.pr-dest { display: flex; gap: 0; background: rgba(255, 255, 255, .07); border-radius: 12px; padding: 4px; margin-bottom: 22px; }
+.pr-dest[hidden] { display: none; }
+.pr-dest button {
+  flex: 1 1 0; border: 0; background: transparent; color: var(--txt-dim); cursor: pointer; white-space: nowrap;
+  font-family: var(--f-disp); font-weight: 600; font-size: 14px; padding: 10px 8px; border-radius: 9px; transition: background .2s, color .2s;
+}
+.pr-dest button:hover { color: #fff; }
+.pr-dest button.is-active { background: #fff; color: var(--ink); }
+.pr-quote { margin: 8px 0 26px; }
+.pr-quote[hidden] { display: none; }
+.pr-quote b { display: block; font-family: var(--f-disp); font-weight: 800; font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; color: var(--amber); }
+.pr-quote p { margin-top: 10px; color: var(--txt); font-size: 16px; }
+.is-other .pr-range, .is-other .pr-scale, .is-other .pr-sum, .is-other .pr-kg, .is-other .pr-tables, .is-other .pr-note { display: none; }
+.is-other .pr-grid { grid-template-columns: minmax(0, 560px); }
+@media (max-width: 560px) { .pr-dest button { font-size: 12.5px; padding: 9px 3px; } }

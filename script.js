@@ -65,6 +65,12 @@
       'pr.th2': 'USD',
       'pr.th3': 'Тенге',
       'pr.cta': 'Отправить посылку',
+      'pr.d.kz': 'Казахстан',
+      'pr.d.ru': 'Россия',
+      'pr.d.other': 'Другие страны',
+      'pr.q.t': 'Расчёт по заявке',
+      'pr.q.d': 'Европа, Азия, Америка, СНГ - назовём цену и сроки за 15 минут.',
+      'pr.cta2': 'Рассчитать доставку',
       'pr.note': 'Цена за всю посылку до двери. Больше 20 кг, грузы и выкуп товаров - рассчитаем за 15 минут.',
       'buyer.idx': 'ПРОВОДНИК В ОАЭ',
       'buyer.h2': 'Купим и привезём всё, что есть в Эмиратах',
@@ -112,6 +118,7 @@
       'calc.thx2': 'Заявка принята, ответим в течение 15 минут. Если открылся WhatsApp - нажмите «Отправить», чтобы продублировать её.',
       'f.pick': 'Выберите',
       'f.kz': 'Казахстан',
+      'f.ru': 'Россия',
       'f.other': 'Другая страна',
       'f.dir': 'Куда везём',
       'f.kg': 'Вес, кг (примерно)',
@@ -177,15 +184,21 @@
       'svc.mail.l1': 'Documents and parcels door to door',
       'svc.mail.l2': 'Shipment status at every stage',
       'pr.idx': 'PRICES',
-      'pr.h2': 'Courier delivery from Dubai to Kazakhstan',
-      'pr.lead': 'Parcels from 1 to 20 kg, door to door. Pick the weight - see the price.',
+      'pr.h2': 'Courier delivery from Dubai worldwide',
+      'pr.lead': 'Fixed prices by weight to Kazakhstan and Russia. Other countries - quoted within 15 minutes.',
       'pr.kg': 'kg',
       'pr.aria': 'Parcel weight, kg',
       'pr.th1': 'Weight',
       'pr.th2': 'AED',
       'pr.th3': 'USD',
       'pr.cta': 'Send a parcel',
-      'pr.note': 'Price for the whole parcel, door to door. Over 20 kg, cargo and buy-out - quoted within 15 minutes.',
+      'pr.d.kz': 'Kazakhstan',
+      'pr.d.ru': 'Russia',
+      'pr.d.other': 'Other countries',
+      'pr.q.t': 'Quoted on request',
+      'pr.q.d': 'Europe, Asia, the Americas, Africa - price and timing within 15 minutes.',
+      'pr.cta2': 'Get a quote',
+      'pr.note': 'Price for the whole parcel, door to door. Heavier parcels, cargo and buy-out - quoted within 15 minutes.',
       'buyer.idx': 'UAE CONCIERGE',
       'buyer.h2': 'We buy and ship anything the Emirates sell',
       'buyer.lead': 'Your personal shopper in Dubai: you send a link, we handle the rest.',
@@ -232,6 +245,7 @@
       'calc.thx2': 'Request received, we will reply within 15 minutes. If WhatsApp opened, press Send to duplicate it.',
       'f.pick': 'Choose',
       'f.kz': 'Kazakhstan',
+      'f.ru': 'Russia',
       'f.other': 'Another country',
       'f.dir': 'Destination',
       'f.kg': 'Weight, kg (approx.)',
@@ -296,11 +310,12 @@
     if (save) { try { localStorage.setItem('alx-lang', lang); } catch (e) {} }
   }
 
-  /* ?lang= в URL важнее localStorage (нужно для Google Ads) */
+  /* ?lang= в URL важнее localStorage (нужно для Google Ads); по умолчанию английский -
+     основная аудитория с 28.09.2026 - ОАЭ */
   var urlLang = new URLSearchParams(location.search).get('lang');
   var stored = null;
   try { stored = localStorage.getItem('alx-lang'); } catch (e) {}
-  applyLang(urlLang === 'ru' || urlLang === 'en' ? urlLang : (stored || 'ru'), false);
+  applyLang(urlLang === 'ru' || urlLang === 'en' ? urlLang : (stored || 'en'), false);
 
   document.querySelectorAll('.lang button').forEach(function (b) {
     b.addEventListener('click', function () { applyLang(b.getAttribute('data-lang'), true); renderPrices(); });
@@ -426,16 +441,29 @@
   }
 
   /* ---------- ЦЕНЫ ----------
-     Прайс клиента «pricelist KZ courier.xlsx», курьерская доставка ОАЭ - Казахстан.
+     Прайс клиента «pricelist KZ courier.xlsx», курьерская доставка из ОАЭ.
      Строка: вес кг, AED, $ (AED / 3.65, целые, как в прайсе), ₸ ($ x 441.88, курс НБ РК 28.09.2026).
-     Русская версия показывает $ и ₸, английская - AED и $. */
-  var PRICES = [
-    [1, 240, 66, 29164], [2, 270, 74, 32699], [3, 300, 82, 36234], [4, 320, 88, 38885],
-    [5, 350, 96, 42420], [6, 370, 101, 44630], [7, 400, 110, 48607], [8, 420, 115, 50816],
-    [9, 450, 123, 54351], [10, 480, 132, 58328], [11, 520, 142, 62747], [12, 550, 151, 66724],
-    [13, 580, 159, 70259], [14, 610, 167, 73794], [15, 640, 175, 77329], [16, 670, 184, 81306],
-    [17, 700, 192, 84841], [18, 750, 205, 90585], [19, 770, 211, 93237], [20, 800, 219, 96772]
-  ];
+     Русская версия - только Казахстан, $ и ₸. Английская - Казахстан, Россия и «другие страны»
+     (расчёт по заявке), AED и $. */
+  var PRICES = {
+    kz: [
+      [1, 240, 66, 29164], [2, 270, 74, 32699], [3, 300, 82, 36234], [4, 320, 88, 38885],
+      [5, 350, 96, 42420], [6, 370, 101, 44630], [7, 400, 110, 48607], [8, 420, 115, 50816],
+      [9, 450, 123, 54351], [10, 480, 132, 58328], [11, 520, 142, 62747], [12, 550, 151, 66724],
+      [13, 580, 159, 70259], [14, 610, 167, 73794], [15, 640, 175, 77329], [16, 670, 184, 81306],
+      [17, 700, 192, 84841], [18, 750, 205, 90585], [19, 770, 211, 93237], [20, 800, 219, 96772]
+    ],
+    /* лист Russia того же прайса, 1-30 кг; только английская версия */
+    ru: [
+      [1, 280, 77, null], [2, 280, 77, null], [3, 310, 85, null], [4, 340, 93, null], [5, 370, 101, null],
+      [6, 400, 110, null], [7, 430, 118, null], [8, 460, 126, null], [9, 500, 137, null], [10, 540, 148, null],
+      [11, 580, 159, null], [12, 630, 173, null], [13, 670, 184, null], [14, 720, 197, null], [15, 760, 208, null],
+      [16, 800, 219, null], [17, 845, 232, null], [18, 890, 244, null], [19, 930, 255, null], [20, 970, 266, null],
+      [21, 1020, 279, null], [22, 1060, 290, null], [23, 1100, 301, null], [24, 1145, 314, null], [25, 1190, 326, null],
+      [26, 1230, 337, null], [27, 1280, 351, null], [28, 1320, 362, null], [29, 1360, 373, null], [30, 1400, 384, null]
+    ]
+  };
+  var dest = 'kz';
   var NB = '\u00a0';
   function grp(v) { return Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, NB); }
   var CUR = {
@@ -450,11 +478,28 @@
 
   function renderPrices() {
     if (!prTables) return;
-    var c = curPair(), half = Math.ceil(PRICES.length / 2), kgWord = I18N[lang]['pr.kg'];
+    if (lang !== 'en') dest = 'kz';
+    var list = PRICES[dest] || PRICES.kz;
+    var c = curPair(), half = Math.ceil(list.length / 2), kgWord = I18N[lang]['pr.kg'];
+    var sec = prTables.closest('.sec-price');
+    sec.classList.toggle('is-other', dest === 'other');
+    document.getElementById('prQuote').hidden = dest !== 'other';
+    document.getElementById('prDest').hidden = lang !== 'en';
+    document.querySelectorAll('#prDest button').forEach(function (b) {
+      var on = b.getAttribute('data-dest') === dest;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    document.getElementById('prRoute').textContent = 'DXB → ' + { kz: 'KZ', ru: 'RU', other: 'WORLD' }[dest];
+    var cta = document.querySelector('.js-lead[data-weight]');
+    cta.firstElementChild.textContent = I18N[lang][dest === 'other' ? 'pr.cta2' : 'pr.cta'];
+    prRange.max = list[list.length - 1][0];
+    document.getElementById('prMax').textContent = prRange.max;
+    if (+prRange.value > +prRange.max) prRange.value = prRange.max;
     prTables.querySelectorAll('[data-i18n="pr.th2"]').forEach(function (th) { th.textContent = c[0].code; });
     prTables.querySelectorAll('[data-i18n="pr.th3"]').forEach(function (th) { th.textContent = c[1].code; });
     prTables.querySelectorAll('tbody').forEach(function (tb, t) {
-      tb.innerHTML = PRICES.slice(t * half, (t + 1) * half).map(function (r) {
+      tb.innerHTML = list.slice(t * half, (t + 1) * half).map(function (r) {
         return '<tr data-kg="' + r[0] + '"><td>' + r[0] + NB + '<span data-i18n="pr.kg">' + kgWord +
           '</span></td><td>' + c[0].f(r[c[0].i]) + '</td><td>' + c[1].f(r[c[1].i]) + '</td></tr>';
       }).join('');
@@ -464,8 +509,9 @@
 
   function showPrice() {
     if (!prRange) return;
-    var kg = +prRange.value, row = PRICES[0], c = curPair();
-    PRICES.forEach(function (r) { if (r[0] <= kg) row = r; });
+    var list = PRICES[dest] || PRICES.kz;
+    var kg = +prRange.value, row = list[0], c = curPair();
+    list.forEach(function (r) { if (r[0] <= kg) row = r; });
     document.getElementById('prKg').textContent = row[0];
     document.getElementById('prUsd').textContent = c[0].f(row[c[0].i]);
     document.getElementById('prKzt').textContent = c[1].f(row[c[1].i]);
@@ -481,6 +527,10 @@
     prTables.addEventListener('click', function (e) {
       var tr = e.target.closest('tr[data-kg]');
       if (tr) { prRange.value = tr.getAttribute('data-kg'); showPrice(); }
+    });
+    document.getElementById('prDest').addEventListener('click', function (e) {
+      var b = e.target.closest('button[data-dest]');
+      if (b) { dest = b.getAttribute('data-dest'); renderPrices(); }
     });
     renderPrices();
   }
@@ -504,8 +554,9 @@
     var el = lmForm.elements;
     el['Услуга'].value = btn && btn.dataset.svc ? btn.dataset.svc : '';
     if (btn && btn.dataset.weight === 'range' && prRange) {
-      el['Вес, кг'].value = prRange.value;
-      if (!el['Направление'].value) el['Направление'].value = 'Казахстан';
+      el['Вес, кг'].value = dest === 'other' ? '' : prRange.value;
+      el['Направление'].value = { kz: 'Казахстан', ru: 'Россия', other: 'Другая страна' }[dest];
+      if (dest === 'other') el['Услуга'].value = 'Курьерская доставка (другие страны)';
     }
     setMenu(false);
     lmLast = document.activeElement;
