@@ -1,5 +1,5 @@
 /* ============================================================
-   AUTOLOGIX GROUP · i18n RU/EN + анимации + цены из таблицы + лид-форма
+   AUTOLOGIX GROUP · i18n RU/EN + анимации + цены + лид-форма
    ============================================================ */
 (function () {
   'use strict';
@@ -62,6 +62,7 @@
       'pr.kg': 'кг',
       'pr.aria': 'Вес посылки, кг',
       'pr.th1': 'Вес',
+      'pr.th2': 'USD',
       'pr.th3': 'Тенге',
       'pr.cta': 'Отправить посылку',
       'pr.note': 'Цена за всю посылку до двери. Больше 20 кг, грузы и выкуп товаров - рассчитаем за 15 минут.',
@@ -181,7 +182,8 @@
       'pr.kg': 'kg',
       'pr.aria': 'Parcel weight, kg',
       'pr.th1': 'Weight',
-      'pr.th3': 'Tenge',
+      'pr.th2': 'AED',
+      'pr.th3': 'USD',
       'pr.cta': 'Send a parcel',
       'pr.note': 'Price for the whole parcel, door to door. Over 20 kg, cargo and buy-out - quoted within 15 minutes.',
       'buyer.idx': 'UAE CONCIERGE',
@@ -301,7 +303,7 @@
   applyLang(urlLang === 'ru' || urlLang === 'en' ? urlLang : (stored || 'ru'), false);
 
   document.querySelectorAll('.lang button').forEach(function (b) {
-    b.addEventListener('click', function () { applyLang(b.getAttribute('data-lang'), true); });
+    b.addEventListener('click', function () { applyLang(b.getAttribute('data-lang'), true); renderPrices(); });
   });
 
   /* ---------- ШАПКА ---------- */
@@ -423,72 +425,50 @@
     });
   }
 
-  /* ---------- ЦЕНЫ: GOOGLE-ТАБЛИЦА ----------
-     Клиент правит прайс сам: колонки «KG | Price $ | Price ₸», строка = вес.
-     Читаем export?format=csv (gviz - запасной, он теряет ячейки смешанного типа).
-     Таблица недоступна или пустая - остаются цены, зашитые в разметку. */
-  var PRICE_SHEET = 'https://docs.google.com/spreadsheets/d/18TicchlVDVDwX8X3fMMFUtiqyeWew_OM6xOt2-B4-ks/';
-  var PRICE_URLS = [PRICE_SHEET + 'export?format=csv', PRICE_SHEET + 'gviz/tq?tqx=out:csv'];
-  var NB = ' ';
-  var prices = [];
-  document.querySelectorAll('#prTables tr[data-kg]').forEach(function (tr) {
-    var td = tr.children;
-    prices.push([+tr.getAttribute('data-kg'), num(td[1].textContent), num(td[2].textContent)]);
-  });
-
-  /* «29 200», «29,200», «$66», «66.5», «66,5 $» - всё читается */
-  function num(t) {
-    var v = String(t || '').replace(/[^\d.,]/g, '');
-    v = /[.,]\d{3}$/.test(v) ? v.replace(/[.,]/g, '') : v.replace(',', '.');
-    return v ? parseFloat(v) : NaN;
-  }
-  function fUsd(v) { return '$' + (v % 1 ? v.toFixed(2) : v); }
-  function fKzt(v) { return Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, NB) + NB + '₸'; }
-
-  function parseCsv(text) {
-    var out = [];
-    text.split(/\r?\n/).forEach(function (line) {
-      var cells = [], cur = '', q = false;
-      for (var i = 0; i < line.length; i++) {
-        var ch = line[i];
-        if (ch === '"') { if (q && line[i + 1] === '"') { cur += '"'; i++; } else q = !q; }
-        else if (ch === ',' && !q) { cells.push(cur); cur = ''; }
-        else cur += ch;
-      }
-      cells.push(cur);
-      var kg = num(cells[0]), usd = num(cells[1]), kzt = num(cells[2]);
-      if (kg > 0 && usd > 0 && kzt > 0) out.push([kg, usd, kzt]);
-    });
-    return out;
-  }
+  /* ---------- ЦЕНЫ ----------
+     Прайс клиента «pricelist KZ courier.xlsx», курьерская доставка ОАЭ - Казахстан.
+     Строка: вес кг, AED, $ (AED / 3.65, целые, как в прайсе), ₸ ($ x 441.88, курс НБ РК 28.09.2026).
+     Русская версия показывает $ и ₸, английская - AED и $. */
+  var PRICES = [
+    [1, 240, 66, 29164], [2, 270, 74, 32699], [3, 300, 82, 36234], [4, 320, 88, 38885],
+    [5, 350, 96, 42420], [6, 370, 101, 44630], [7, 400, 110, 48607], [8, 420, 115, 50816],
+    [9, 450, 123, 54351], [10, 480, 132, 58328], [11, 520, 142, 62747], [12, 550, 151, 66724],
+    [13, 580, 159, 70259], [14, 610, 167, 73794], [15, 640, 175, 77329], [16, 670, 184, 81306],
+    [17, 700, 192, 84841], [18, 750, 205, 90585], [19, 770, 211, 93237], [20, 800, 219, 96772]
+  ];
+  var NB = '\u00a0';
+  function grp(v) { return Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, NB); }
+  var CUR = {
+    aed: { code: 'AED', i: 1, f: function (v) { return 'AED' + NB + grp(v); } },
+    usd: { code: 'USD', i: 2, f: function (v) { return '$' + grp(v); } },
+    kzt: { code: 'Тенге', i: 3, f: function (v) { return grp(v) + NB + '₸'; } }
+  };
+  function curPair() { return lang === 'en' ? [CUR.aed, CUR.usd] : [CUR.usd, CUR.kzt]; }
 
   var prRange = document.getElementById('prRange');
   var prTables = document.getElementById('prTables');
 
-  function renderTables() {
+  function renderPrices() {
     if (!prTables) return;
-    var half = Math.ceil(prices.length / 2);
-    var kgWord = I18N[lang]['pr.kg'];
+    var c = curPair(), half = Math.ceil(PRICES.length / 2), kgWord = I18N[lang]['pr.kg'];
+    prTables.querySelectorAll('[data-i18n="pr.th2"]').forEach(function (th) { th.textContent = c[0].code; });
+    prTables.querySelectorAll('[data-i18n="pr.th3"]').forEach(function (th) { th.textContent = c[1].code; });
     prTables.querySelectorAll('tbody').forEach(function (tb, t) {
-      tb.innerHTML = prices.slice(t * half, (t + 1) * half).map(function (r) {
+      tb.innerHTML = PRICES.slice(t * half, (t + 1) * half).map(function (r) {
         return '<tr data-kg="' + r[0] + '"><td>' + r[0] + NB + '<span data-i18n="pr.kg">' + kgWord +
-          '</span></td><td>' + fUsd(r[1]) + '</td><td>' + fKzt(r[2]) + '</td></tr>';
+          '</span></td><td>' + c[0].f(r[c[0].i]) + '</td><td>' + c[1].f(r[c[1].i]) + '</td></tr>';
       }).join('');
     });
-    if (prRange) {
-      prRange.min = prices[0][0];
-      prRange.max = prices[prices.length - 1][0];
-    }
     showPrice();
   }
 
   function showPrice() {
     if (!prRange) return;
-    var kg = +prRange.value, row = prices[0];
-    prices.forEach(function (r) { if (r[0] <= kg) row = r; });
+    var kg = +prRange.value, row = PRICES[0], c = curPair();
+    PRICES.forEach(function (r) { if (r[0] <= kg) row = r; });
     document.getElementById('prKg').textContent = row[0];
-    document.getElementById('prUsd').textContent = fUsd(row[1]);
-    document.getElementById('prKzt').textContent = fKzt(row[2]);
+    document.getElementById('prUsd').textContent = c[0].f(row[c[0].i]);
+    document.getElementById('prKzt').textContent = c[1].f(row[c[1].i]);
     var p = (row[0] - prRange.min) / ((prRange.max - prRange.min) || 1) * 100;
     prRange.style.setProperty('--p', p + '%');
     prTables.querySelectorAll('tr[data-kg]').forEach(function (tr) {
@@ -502,20 +482,7 @@
       var tr = e.target.closest('tr[data-kg]');
       if (tr) { prRange.value = tr.getAttribute('data-kg'); showPrice(); }
     });
-    showPrice();
-    (function load(i) {
-      if (i >= PRICE_URLS.length || !window.fetch) return;
-      fetch(PRICE_URLS[i], { cache: 'no-store' })
-        .then(function (r) { if (!r.ok) throw 0; return r.text(); })
-        .then(function (t) {
-          var rows = parseCsv(t);
-          if (rows.length < 3) throw 0;
-          rows.sort(function (a, b) { return a[0] - b[0]; });
-          prices = rows;
-          renderTables();
-        })
-        .catch(function () { load(i + 1); });
-    })(0);
+    renderPrices();
   }
 
   /* ---------- ЛИД-ФОРМА ----------

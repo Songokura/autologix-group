@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700;800&family=Onest:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20260928-2">
+  <link rel="stylesheet" href="styles.css?v=20260928-3">
 
   <script type="application/ld+json">
   {
@@ -220,7 +220,7 @@
     </div>
   </section>
 
-  <!-- ЦЕНЫ: данные из Google-таблицы (script.js, PRICE_SHEET), здесь - запасные -->
+  <!-- ЦЕНЫ: прайс клиента, источник - PRICES в script.js (RU: $ и ₸, EN: AED и $) -->
   <section class="sec sec-price" id="prices">
     <div class="wrap">
       <div class="sec-head">
@@ -237,7 +237,7 @@
           <button class="btn btn-amber btn-lg btn-full js-lead" type="button" data-svc="Курьерская доставка" data-weight="range"><span data-i18n="pr.cta">Отправить посылку</span></button>
           <p class="pr-note" data-i18n="pr.note">Цена за всю посылку до двери. Больше 20 кг, грузы и выкуп товаров - рассчитаем за 15 минут.</p>
         </div>
-        <div class="pr-tables reveal" id="prTables"><table class="pr-t "><thead><tr><th data-i18n="pr.th1">Вес</th><th>USD</th><th data-i18n="pr.th3">Тенге</th></tr></thead><tbody><tr data-kg="1"><td>1 <span data-i18n="pr.kg">кг</span></td><td>$66</td><td>29 164 ₸</td></tr><tr data-kg="2"><td>2 <span data-i18n="pr.kg">кг</span></td><td>$74</td><td>32 699 ₸</td></tr><tr data-kg="3"><td>3 <span data-i18n="pr.kg">кг</span></td><td>$82</td><td>36 234 ₸</td></tr><tr data-kg="4"><td>4 <span data-i18n="pr.kg">кг</span></td><td>$88</td><td>38 885 ₸</td></tr><tr data-kg="5"><td>5 <span data-i18n="pr.kg">кг</span></td><td>$96</td><td>42 420 ₸</td></tr><tr data-kg="6"><td>6 <span data-i18n="pr.kg">кг</span></td><td>$101</td><td>44 630 ₸</td></tr><tr data-kg="7"><td>7 <span data-i18n="pr.kg">кг</span></td><td>$110</td><td>48 607 ₸</td></tr><tr data-kg="8"><td>8 <span data-i18n="pr.kg">кг</span></td><td>$115</td><td>50 816 ₸</td></tr><tr data-kg="9"><td>9 <span data-i18n="pr.kg">кг</span></td><td>$123</td><td>54 351 ₸</td></tr><tr data-kg="10"><td>10 <span data-i18n="pr.kg">кг</span></td><td>$132</td><td>58 328 ₸</td></tr></tbody></table><table class="pr-t "><thead><tr><th data-i18n="pr.th1">Вес</th><th>USD</th><th data-i18n="pr.th3">Тенге</th></tr></thead><tbody><tr data-kg="11"><td>11 <span data-i18n="pr.kg">кг</span></td><td>$142</td><td>62 747 ₸</td></tr><tr data-kg="12"><td>12 <span data-i18n="pr.kg">кг</span></td><td>$151</td><td>66 724 ₸</td></tr><tr data-kg="13"><td>13 <span data-i18n="pr.kg">кг</span></td><td>$159</td><td>70 259 ₸</td></tr><tr data-kg="14"><td>14 <span data-i18n="pr.kg">кг</span></td><td>$167</td><td>73 794 ₸</td></tr><tr data-kg="15"><td>15 <span data-i18n="pr.kg">кг</span></td><td>$175</td><td>77 329 ₸</td></tr><tr data-kg="16"><td>16 <span data-i18n="pr.kg">кг</span></td><td>$184</td><td>81 306 ₸</td></tr><tr data-kg="17"><td>17 <span data-i18n="pr.kg">кг</span></td><td>$192</td><td>84 841 ₸</td></tr><tr data-kg="18"><td>18 <span data-i18n="pr.kg">кг</span></td><td>$205</td><td>90 585 ₸</td></tr><tr data-kg="19"><td>19 <span data-i18n="pr.kg">кг</span></td><td>$211</td><td>93 237 ₸</td></tr><tr data-kg="20"><td>20 <span data-i18n="pr.kg">кг</span></td><td>$219</td><td>96 772 ₸</td></tr></tbody></table></div>
+        <div class="pr-tables reveal" id="prTables"><table class="pr-t "><thead><tr><th data-i18n="pr.th1">Вес</th><th data-i18n="pr.th2">USD</th><th data-i18n="pr.th3">Тенге</th></tr></thead><tbody><tr data-kg="1" data-aed="240"><td>1 <span data-i18n="pr.kg">кг</span></td><td>$66</td><td>29 164 ₸</td></tr><tr data-kg="2" data-aed="270"><td>2 <span data-i18n="pr.kg">кг</span></td><td>$74</td><td>32 699 ₸</td></tr><tr data-kg="3" data-aed="300"><td>3 <span data-i18n="pr.kg">кг</span></td><td>$82</td><td>36 234 ₸</td></tr><tr data-kg="4" data-aed="320"><td>4 <span data-i18n="pr.kg">кг</span></td><td>$88</td><td>38 885 ₸</td></tr><tr data-kg="5" data-aed="350"><td>5 <span data-i18n="pr.kg">кг</span></td><td>$96</td><td>42 420 ₸</td></tr><tr data-kg="6" data-aed="370"><td>6 <span data-i18n="pr.kg">кг</span></td><td>$101</td><td>44 630 ₸</td></tr><tr data-kg="7" data-aed="400"><td>7 <span data-i18n="pr.kg">кг</span></td><td>$110</td><td>48 607 ₸</td></tr><tr data-kg="8" data-aed="420"><td>8 <span data-i18n="pr.kg">кг</span></td><td>$115</td><td>50 816 ₸</td></tr><tr data-kg="9" data-aed="450"><td>9 <span data-i18n="pr.kg">кг</span></td><td>$123</td><td>54 351 ₸</td></tr><tr data-kg="10" data-aed="480"><td>10 <span data-i18n="pr.kg">кг</span></td><td>$132</td><td>58 328 ₸</td></tr></tbody></table><table class="pr-t "><thead><tr><th data-i18n="pr.th1">Вес</th><th data-i18n="pr.th2">USD</th><th data-i18n="pr.th3">Тенге</th></tr></thead><tbody><tr data-kg="11" data-aed="520"><td>11 <span data-i18n="pr.kg">кг</span></td><td>$142</td><td>62 747 ₸</td></tr><tr data-kg="12" data-aed="550"><td>12 <span data-i18n="pr.kg">кг</span></td><td>$151</td><td>66 724 ₸</td></tr><tr data-kg="13" data-aed="580"><td>13 <span data-i18n="pr.kg">кг</span></td><td>$159</td><td>70 259 ₸</td></tr><tr data-kg="14" data-aed="610"><td>14 <span data-i18n="pr.kg">кг</span></td><td>$167</td><td>73 794 ₸</td></tr><tr data-kg="15" data-aed="640"><td>15 <span data-i18n="pr.kg">кг</span></td><td>$175</td><td>77 329 ₸</td></tr><tr data-kg="16" data-aed="670"><td>16 <span data-i18n="pr.kg">кг</span></td><td>$184</td><td>81 306 ₸</td></tr><tr data-kg="17" data-aed="700"><td>17 <span data-i18n="pr.kg">кг</span></td><td>$192</td><td>84 841 ₸</td></tr><tr data-kg="18" data-aed="750"><td>18 <span data-i18n="pr.kg">кг</span></td><td>$205</td><td>90 585 ₸</td></tr><tr data-kg="19" data-aed="770"><td>19 <span data-i18n="pr.kg">кг</span></td><td>$211</td><td>93 237 ₸</td></tr><tr data-kg="20" data-aed="800"><td>20 <span data-i18n="pr.kg">кг</span></td><td>$219</td><td>96 772 ₸</td></tr></tbody></table></div>
       </div>
     </div>
   </section>
@@ -522,6 +522,6 @@
   </div>
 </div>
 
-<script src="script.js?v=20260928-2"></script>
+<script src="script.js?v=20260928-3"></script>
 </body>
 </html>
