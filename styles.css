@@ -615,12 +615,3 @@ body.lm-open { overflow: hidden; }
 .is-other .pr-range, .is-other .pr-scale, .is-other .pr-sum, .is-other .pr-kg, .is-other .pr-tables, .is-other .pr-note { display: none; }
 .is-other .pr-grid { grid-template-columns: minmax(0, 560px); }
 @media (max-width: 560px) { .pr-dest button { font-size: 12.5px; padding: 9px 3px; } }
-
-/* ограничение курьерской доставки: парфюмерия и жидкости */
-.pr-limit {
-  display: flex; align-items: center; gap: 10px; margin: 0 0 16px; padding: 11px 14px; border-radius: 12px;
-  background: rgba(226, 87, 76, .1); border: 1px solid rgba(226, 87, 76, .35); color: #FFB3AA; font-size: 14.5px; font-weight: 500; line-height: 1.35;
-}
-.pr-limit svg { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; }
-.svc li.svc-no { color: #FFB3AA; }
-.svc li.svc-no::before { background: none; transform: none; width: auto; height: auto; top: 0; content: "×"; color: #FF8A7D; font-weight: 700; left: 1px; }
