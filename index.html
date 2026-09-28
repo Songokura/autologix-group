@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Autologix Group - международная логистика и доставка грузов из Дубая (ОАЭ)</title>
-  <meta name="description" content="Авиа, море, авто и авиапочта из ОАЭ. Выкуп и доставка любых товаров из Дубая: косметика, лекарства, электроника. Расчёт стоимости за 15 минут в WhatsApp.">
+  <meta name="description" content="Авиа, море, авто и авиапочта из ОАЭ. Выкуп и доставка любых товаров из Дубая: косметика, лекарства, электроника. Цены на курьерскую доставку в Казахстан, расчёт груза за 15 минут.">
   <link rel="canonical" href="https://autologix-group.kz/">
   <meta name="theme-color" content="#0B1017">
 
@@ -20,13 +20,13 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Autologix Group">
   <meta property="og:title" content="Autologix Group - международная логистика из Дубая">
-  <meta property="og:description" content="Авиа, море, авто и авиапочта из ОАЭ. Выкуп и доставка любых товаров из Дубая. Расчёт за 15 минут в WhatsApp.">
+  <meta property="og:description" content="Авиа, море, авто и авиапочта из ОАЭ. Выкуп и доставка любых товаров из Дубая. Расчёт за 15 минут.">
   <meta property="og:url" content="https://autologix-group.kz/">
   <meta property="og:image" content="https://autologix-group.kz/assets/og-alg.jpg">
   <meta property="og:locale" content="ru_RU">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Autologix Group - международная логистика из Дубая">
-  <meta name="twitter:description" content="Авиа, море, авто и авиапочта из ОАЭ. Выкуп и доставка любых товаров. Расчёт за 15 минут в WhatsApp.">
+  <meta name="twitter:description" content="Авиа, море, авто и авиапочта из ОАЭ. Выкуп и доставка любых товаров. Расчёт за 15 минут.">
   <meta name="twitter:image" content="https://autologix-group.kz/assets/og-alg.jpg">
 
   <link rel="icon" href="favicon.ico" sizes="any">
@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700;800&family=Onest:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20260918-1">
+  <link rel="stylesheet" href="styles.css?v=20260928-1">
 
   <script type="application/ld+json">
   {
@@ -49,7 +49,6 @@
     "url": "https://autologix-group.kz/",
     "image": "https://autologix-group.kz/assets/og-alg.jpg",
     "logo": "https://autologix-group.kz/assets/icon-512.png",
-    "telephone": "+971586858364",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Meydan Free Zone, Meydan Grandstand, 6th Floor, Al Meydan Rd, Nad Al Sheba",
@@ -78,6 +77,7 @@
 
     <nav class="nav" aria-label="Разделы">
       <a href="#services" data-i18n="nav.services">Услуги</a>
+      <a href="#prices" data-i18n="nav.prices">Цены</a>
       <a href="#buyer" data-i18n="nav.buyer">Проводник в ОАЭ</a>
       <a href="#how" data-i18n="nav.how">Как работаем</a>
       <a href="#about" data-i18n="nav.about">О компании</a>
@@ -89,10 +89,7 @@
         <button type="button" data-lang="ru" class="is-active" aria-pressed="true" lang="ru">RU</button>
         <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
       </div>
-      <a class="btn btn-wa hdr-cta" data-wa="wa.header" href="https://wa.me/971558708364" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .2 0 .7-.1 1.2Z"/></svg>
-        <span>WhatsApp</span>
-      </a>
+      <button class="btn btn-amber hdr-cta js-lead" type="button"><span data-i18n="cta.lead">Оставить заявку</span></button>
       <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mnav">
         <span></span><span></span><span></span>
       </button>
@@ -104,16 +101,14 @@
 <div class="mnav" id="mnav" aria-hidden="true">
   <nav class="mnav-links" aria-label="Мобильное меню">
     <a href="#services" style="--i:0" data-i18n="nav.services">Услуги</a>
-    <a href="#buyer" style="--i:1" data-i18n="nav.buyer">Проводник в ОАЭ</a>
-    <a href="#how" style="--i:2" data-i18n="nav.how">Как работаем</a>
-    <a href="#about" style="--i:3" data-i18n="nav.about">О компании</a>
-    <a href="#contacts" style="--i:4" data-i18n="nav.contacts">Контакты</a>
+    <a href="#prices" style="--i:1" data-i18n="nav.prices">Цены</a>
+    <a href="#buyer" style="--i:2" data-i18n="nav.buyer">Проводник в ОАЭ</a>
+    <a href="#how" style="--i:3" data-i18n="nav.how">Как работаем</a>
+    <a href="#about" style="--i:4" data-i18n="nav.about">О компании</a>
+    <a href="#contacts" style="--i:5" data-i18n="nav.contacts">Контакты</a>
   </nav>
   <div class="mnav-foot">
-    <a class="btn btn-wa" data-wa="wa.header" href="https://wa.me/971558708364" target="_blank" rel="noopener">
-      <span data-i18n="mnav.wa">Написать в WhatsApp</span>
-    </a>
-    <a class="mnav-tel" href="tel:+971586858364">+971 58 685 8364</a>
+    <button class="btn btn-amber btn-lg js-lead" type="button"><span data-i18n="cta.lead">Оставить заявку</span></button>
     <p class="mono mnav-note" data-i18n="mnav.note">ОТВЕТ В ТЕЧЕНИЕ 15 МИНУТ · 24/7</p>
   </div>
 </div>
@@ -138,13 +133,10 @@
         <span class="ht-clip"><span class="ht-line ht-revealed ht-big" data-i18n="hero.t2">ГРУЗОПЕРЕВОЗКИ</span></span>
         <span class="ht-clip"><span class="ht-line ht-revealed ht-sub" data-i18n="hero.t3">из ОАЭ в любую точку мира</span></span>
       </h1>
-      <p class="hero-lead reveal" style="--d:.35s" data-i18n="hero.lead">Авиа, море, авто и авиапочта. Выкупаем и доставляем любые товары из Дубая. Расчёт стоимости - за 15 минут в WhatsApp.</p>
+      <p class="hero-lead reveal" style="--d:.35s" data-i18n="hero.lead">Авиа, море, авто и авиапочта. Выкупаем и доставляем любые товары из Дубая. Расчёт стоимости - за 15 минут.</p>
       <div class="hero-cta reveal" style="--d:.5s">
-        <a class="btn btn-wa btn-lg magnet" data-wa="wa.hero" href="https://wa.me/971558708364" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .2 0 .7-.1 1.2Z"/></svg>
-          <span data-i18n="hero.cta1">Рассчитать стоимость</span>
-        </a>
-        <a class="btn btn-ghost btn-lg" href="#services"><span data-i18n="hero.cta2">Наши услуги</span></a>
+        <button class="btn btn-amber btn-lg magnet js-lead" type="button"><span data-i18n="hero.cta1">Рассчитать стоимость</span></button>
+        <a class="btn btn-ghost btn-lg" href="#prices"><span data-i18n="hero.cta2">Цены на доставку</span></a>
       </div>
       <p class="hero-data mono reveal" style="--d:.65s">DXB · 25.2048° N, 55.2708° E <span class="hd-sep">///</span> UAE → WORLD</p>
     </div>
@@ -179,7 +171,7 @@
               <li data-i18n="svc.avia.l1">Срочные и ценные грузы</li>
               <li data-i18n="svc.avia.l2">Из аэропортов Дубая DXB и DWC</li>
             </ul>
-            <a class="svc-link" data-wa="wa.avia" href="https://wa.me/971558708364" target="_blank" rel="noopener"><span data-i18n="svc.link">Рассчитать</span><em>→</em></a>
+            <button class="svc-link js-lead" type="button" data-svc="Авиаперевозки"><span data-i18n="svc.link">Рассчитать</span><em>→</em></button>
           </div>
         </article>
 
@@ -193,7 +185,7 @@
               <li data-i18n="svc.sea.l1">Контейнеры FCL, LCL и сборные грузы</li>
               <li data-i18n="svc.sea.l2">Из портов ОАЭ в любой порт мира</li>
             </ul>
-            <a class="svc-link" data-wa="wa.sea" href="https://wa.me/971558708364" target="_blank" rel="noopener"><span data-i18n="svc.link">Рассчитать</span><em>→</em></a>
+            <button class="svc-link js-lead" type="button" data-svc="Морские перевозки"><span data-i18n="svc.link">Рассчитать</span><em>→</em></button>
           </div>
         </article>
 
@@ -207,7 +199,7 @@
               <li data-i18n="svc.road.l1">Фуры и сборные грузы</li>
               <li data-i18n="svc.road.l2">По ОАЭ и на международных маршрутах</li>
             </ul>
-            <a class="svc-link" data-wa="wa.road" href="https://wa.me/971558708364" target="_blank" rel="noopener"><span data-i18n="svc.link">Рассчитать</span><em>→</em></a>
+            <button class="svc-link js-lead" type="button" data-svc="Автоперевозки"><span data-i18n="svc.link">Рассчитать</span><em>→</em></button>
           </div>
         </article>
 
@@ -221,9 +213,31 @@
               <li data-i18n="svc.mail.l1">Документы и посылки до двери</li>
               <li data-i18n="svc.mail.l2">Статус отправления на каждом этапе</li>
             </ul>
-            <a class="svc-link" data-wa="wa.mail" href="https://wa.me/971558708364" target="_blank" rel="noopener"><span data-i18n="svc.link">Рассчитать</span><em>→</em></a>
+            <button class="svc-link js-lead" type="button" data-svc="Авиапочта"><span data-i18n="svc.link">Рассчитать</span><em>→</em></button>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ЦЕНЫ: данные из Google-таблицы (script.js, PRICE_SHEET), здесь - запасные -->
+  <section class="sec sec-price" id="prices">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="idx mono reveal"><span class="idx-line"></span><span data-i18n="pr.idx">ЦЕНЫ</span></p>
+        <h2 class="reveal" data-i18n="pr.h2">Курьерская доставка из Дубая в Казахстан</h2>
+        <p class="sec-lead reveal" data-i18n="pr.lead">Посылки от 1 до 20 кг до двери. Выберите вес - цена сразу.</p>
+      </div>
+      <div class="pr-grid">
+        <div class="pr-calc reveal">
+          <div class="pr-top"><span class="pr-route mono">DXB → KZ</span><span class="pr-kg"><b id="prKg">5</b> <span data-i18n="pr.kg">кг</span></span></div>
+          <input class="pr-range" type="range" id="prRange" min="1" max="20" step="1" value="5" aria-label="Вес посылки, кг" data-i18n-aria="pr.aria">
+          <div class="pr-scale mono" aria-hidden="true"><span>1</span><span>20</span></div>
+          <div class="pr-sum"><b id="prUsd">$96</b><span id="prKzt">42 400 ₸</span></div>
+          <button class="btn btn-amber btn-lg btn-full js-lead" type="button" data-svc="Курьерская доставка" data-weight="range"><span data-i18n="pr.cta">Отправить посылку</span></button>
+          <p class="pr-note" data-i18n="pr.note">Цена за всю посылку до двери. Больше 20 кг, грузы и выкуп товаров - рассчитаем за 15 минут.</p>
+        </div>
+        <div class="pr-tables reveal" id="prTables"><table class="pr-t "><thead><tr><th data-i18n="pr.th1">Вес</th><th>USD</th><th data-i18n="pr.th3">Тенге</th></tr></thead><tbody><tr data-kg="1"><td>1 <span data-i18n="pr.kg">кг</span></td><td>$66</td><td>29 200 ₸</td></tr><tr data-kg="2"><td>2 <span data-i18n="pr.kg">кг</span></td><td>$74</td><td>32 700 ₸</td></tr><tr data-kg="3"><td>3 <span data-i18n="pr.kg">кг</span></td><td>$82</td><td>36 200 ₸</td></tr><tr data-kg="4"><td>4 <span data-i18n="pr.kg">кг</span></td><td>$88</td><td>38 900 ₸</td></tr><tr data-kg="5"><td>5 <span data-i18n="pr.kg">кг</span></td><td>$96</td><td>42 400 ₸</td></tr><tr data-kg="6"><td>6 <span data-i18n="pr.kg">кг</span></td><td>$101</td><td>44 600 ₸</td></tr><tr data-kg="7"><td>7 <span data-i18n="pr.kg">кг</span></td><td>$110</td><td>48 600 ₸</td></tr><tr data-kg="8"><td>8 <span data-i18n="pr.kg">кг</span></td><td>$115</td><td>50 800 ₸</td></tr><tr data-kg="9"><td>9 <span data-i18n="pr.kg">кг</span></td><td>$123</td><td>54 400 ₸</td></tr><tr data-kg="10"><td>10 <span data-i18n="pr.kg">кг</span></td><td>$132</td><td>58 300 ₸</td></tr></tbody></table><table class="pr-t "><thead><tr><th data-i18n="pr.th1">Вес</th><th>USD</th><th data-i18n="pr.th3">Тенге</th></tr></thead><tbody><tr data-kg="11"><td>11 <span data-i18n="pr.kg">кг</span></td><td>$142</td><td>62 700 ₸</td></tr><tr data-kg="12"><td>12 <span data-i18n="pr.kg">кг</span></td><td>$151</td><td>66 700 ₸</td></tr><tr data-kg="13"><td>13 <span data-i18n="pr.kg">кг</span></td><td>$159</td><td>70 300 ₸</td></tr><tr data-kg="14"><td>14 <span data-i18n="pr.kg">кг</span></td><td>$167</td><td>73 800 ₸</td></tr><tr data-kg="15"><td>15 <span data-i18n="pr.kg">кг</span></td><td>$175</td><td>77 300 ₸</td></tr><tr data-kg="16"><td>16 <span data-i18n="pr.kg">кг</span></td><td>$184</td><td>81 300 ₸</td></tr><tr data-kg="17"><td>17 <span data-i18n="pr.kg">кг</span></td><td>$192</td><td>84 800 ₸</td></tr><tr data-kg="18"><td>18 <span data-i18n="pr.kg">кг</span></td><td>$205</td><td>90 600 ₸</td></tr><tr data-kg="19"><td>19 <span data-i18n="pr.kg">кг</span></td><td>$211</td><td>93 200 ₸</td></tr><tr data-kg="20"><td>20 <span data-i18n="pr.kg">кг</span></td><td>$219</td><td>96 800 ₸</td></tr></tbody></table></div>
       </div>
     </div>
   </section>
@@ -271,7 +285,7 @@
             <span data-i18n="buyer.c1">Косметика</span><span data-i18n="buyer.c2">Парфюмерия</span><span data-i18n="buyer.c3">Лекарства</span><span data-i18n="buyer.c4">Витамины</span><span data-i18n="buyer.c5">Электроника</span><span data-i18n="buyer.c6">Запчасти</span><span data-i18n="buyer.c7">Одежда</span><span data-i18n="buyer.c8">Детские товары</span>
           </div>
 
-          <a class="btn btn-amber btn-lg reveal" style="--d:.35s" data-wa="wa.buyer" href="https://wa.me/971558708364" target="_blank" rel="noopener"><span data-i18n="buyer.cta">Прислать ссылку на товар</span></a>
+          <button class="btn btn-amber btn-lg reveal js-lead" style="--d:.35s" type="button" data-svc="Выкуп товара в ОАЭ"><span data-i18n="buyer.cta">Прислать ссылку на товар</span></button>
         </div>
 
         <div class="buyer-vis">
@@ -305,7 +319,7 @@
         </svg>
         <div class="step reveal" style="--d:.05s">
           <span class="step-n mono">01</span>
-          <div><h3 data-i18n="how.s1.t">Заявка в WhatsApp</h3><p data-i18n="how.s1.d">Ссылка на товар или параметры груза.</p></div>
+          <div><h3 data-i18n="how.s1.t">Заявка на сайте</h3><p data-i18n="how.s1.d">Ссылка на товар или параметры груза.</p></div>
         </div>
         <div class="step reveal" style="--d:.12s">
           <span class="step-n mono">02</span>
@@ -356,29 +370,43 @@
           <h2 class="reveal" data-i18n="calc.h2">Узнайте стоимость за 15 минут</h2>
           <p class="sec-lead reveal" data-i18n="calc.lead">Опишите груз или пришлите ссылку на товар - вернёмся с ценой и сроками.</p>
 
-          <form id="calcForm" class="reveal" novalidate>
+          <form id="calcForm" class="lf reveal" novalidate>
             <div class="field">
               <input type="text" id="fName" name="name" autocomplete="name" required placeholder=" ">
               <label for="fName" data-i18n="calc.name">Ваше имя</label>
             </div>
             <div class="field">
-              <input type="tel" id="fPhone" name="phone" autocomplete="tel" required placeholder=" ">
-              <label for="fPhone" data-i18n="calc.phone">Телефон или WhatsApp</label>
+              <input type="tel" id="fPhone" name="phone" autocomplete="tel" inputmode="tel" required placeholder=" ">
+              <label for="fPhone" data-i18n="calc.phone">Телефон</label>
+            </div>
+            <div class="f-row">
+              <div class="field field-sel">
+                <select id="fDir" name="Направление" required>
+                  <option value="" data-i18n="f.pick">Выберите</option>
+                  <option value="Казахстан" data-i18n="f.kz">Казахстан</option>
+                  <option value="Другая страна" data-i18n="f.other">Другая страна</option>
+                </select>
+                <label for="fDir" data-i18n="f.dir">Куда везём</label>
+              </div>
+              <div class="field">
+                <input type="text" id="fKg" name="Вес, кг" inputmode="decimal" placeholder=" ">
+                <label for="fKg" data-i18n="f.kg">Вес, кг (примерно)</label>
+              </div>
             </div>
             <div class="field">
-              <textarea id="fCargo" name="cargo" rows="3" required placeholder=" "></textarea>
-              <label for="fCargo" data-i18n="calc.cargo">Что везём? Груз или ссылка на товар</label>
+              <textarea id="fMsg" name="comment" rows="2" placeholder=" "></textarea>
+              <label for="fMsg" data-i18n="calc.cargo">Что везём? Груз или ссылка на товар</label>
             </div>
-            <button type="submit" class="btn btn-wa btn-lg btn-full">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .2 0 .7-.1 1.2Z"/></svg>
-              <span data-i18n="calc.btn">Получить расчёт в WhatsApp</span>
-            </button>
-            <p class="calc-note" data-i18n="calc.note">Нажимая кнопку, вы перейдёте в WhatsApp с готовым сообщением.</p>
+            <label class="hp" aria-hidden="true"><input type="text" name="Услуга" tabindex="-1" autocomplete="off"></label>
+            <label class="hp" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+            <p class="f-err" hidden data-i18n="f.err">Укажите имя, телефон и куда везём</p>
+            <button type="submit" class="btn btn-amber btn-lg btn-full"><span data-i18n="calc.btn">Получить расчёт</span></button>
+            <p class="calc-note" data-i18n="calc.note">Ответим в течение 15 минут, заявки принимаем 24/7.</p>
           </form>
 
-          <div id="calcThanks" class="calc-thanks" hidden aria-live="polite">
+          <div class="thanks" hidden aria-live="polite">
             <p class="ct-big" data-i18n="calc.thx1">Спасибо!</p>
-            <p data-i18n="calc.thx2">Открываем WhatsApp - сообщение уже готово к отправке.</p>
+            <p data-i18n="calc.thx2">Заявка принята, ответим в течение 15 минут. Если открылся WhatsApp - нажмите «Отправить», чтобы продублировать её.</p>
           </div>
         </div>
 
@@ -399,34 +427,29 @@
       </div>
 
       <div class="cont-grid">
-        <a class="cont-card reveal" style="--d:.05s" data-wa="wa.header" href="https://wa.me/971558708364" target="_blank" rel="noopener">
-          <span class="cont-k mono">WHATSAPP</span>
-          <span class="cont-v">+971 55 870 8364</span>
-          <span class="cont-a" data-i18n="cont.wa">Написать →</span>
-        </a>
-        <a class="cont-card reveal" style="--d:.12s" href="tel:+971586858364">
-          <span class="cont-k mono" data-i18n="cont.telk">ТЕЛЕФОН</span>
-          <span class="cont-v">+971 58 685 8364</span>
-          <span class="cont-a" data-i18n="cont.tel">Позвонить →</span>
-        </a>
-        <a class="cont-card reveal" style="--d:.19s" href="https://www.instagram.com/autologix_group/" target="_blank" rel="noopener">
+        <button class="cont-card cont-lead reveal js-lead" style="--d:.05s" type="button">
+          <span class="cont-k mono" data-i18n="cont.leadk">ЗАЯВКА</span>
+          <span class="cont-v" data-i18n="cont.leadv">Расчёт за 15 минут</span>
+          <span class="cont-a" data-i18n="cont.lead">Оставить заявку →</span>
+        </button>
+        <a class="cont-card reveal" style="--d:.12s" href="https://www.instagram.com/autologix_group/" target="_blank" rel="noopener">
           <span class="cont-k mono">INSTAGRAM</span>
           <span class="cont-v">@autologix_group</span>
           <span class="cont-a" data-i18n="cont.ig">Открыть →</span>
         </a>
-        <a class="cont-card reveal" style="--d:.26s" href="https://www.tiktok.com/@autologix_group" target="_blank" rel="noopener">
+        <a class="cont-card reveal" style="--d:.19s" href="https://www.tiktok.com/@autologix_group" target="_blank" rel="noopener">
           <span class="cont-k mono">TIKTOK</span>
           <span class="cont-v">@autologix_group</span>
           <span class="cont-a" data-i18n="cont.tt">Открыть →</span>
         </a>
-        <a class="cont-card reveal" style="--d:.33s" href="https://maps.app.goo.gl/fzgKqo52ahk5T6mv5" target="_blank" rel="noopener">
+        <a class="cont-card cont-wide reveal" style="--d:.26s" href="https://maps.app.goo.gl/fzgKqo52ahk5T6mv5" target="_blank" rel="noopener">
           <span class="cont-k mono" data-i18n="cont.offk">ОФИС</span>
           <span class="cont-v cont-addr" data-i18n="cont.addr">Meydan Free Zone, Meydan Grandstand, 6th Floor, Al Meydan Rd, Nad Al Sheba, Dubai, UAE</span>
           <span class="cont-a" data-i18n="cont.map">Открыть в Google Maps →</span>
         </a>
-        <div class="cont-card cont-hours reveal" style="--d:.40s">
+        <div class="cont-card cont-hours reveal" style="--d:.33s">
           <span class="cont-k mono" data-i18n="cont.hrk">ГРАФИК</span>
-          <span class="cont-v" data-i18n="cont.hours">Заявки и расчёт - 24/7. Ответ в WhatsApp в течение 15 минут.</span>
+          <span class="cont-v" data-i18n="cont.hours">Заявки и расчёт - 24/7. Ответ в течение 15 минут.</span>
         </div>
       </div>
     </div>
@@ -447,16 +470,58 @@
 
 <!-- ЛИПКАЯ ПАНЕЛЬ (МОБАЙЛ) -->
 <div class="stickybar">
-  <a class="sb-tel" href="tel:+971586858364">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z" fill="currentColor"/></svg>
-    <span data-i18n="sb.tel">Позвонить</span>
-  </a>
-  <a class="sb-wa" data-wa="wa.header" href="https://wa.me/971558708364" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .2 0 .7-.1 1.2Z" fill="currentColor"/></svg>
-    <span>WhatsApp</span>
-  </a>
+  <button class="sb-lead js-lead" type="button"><span data-i18n="cta.lead">Оставить заявку</span></button>
 </div>
 
-<script src="script.js?v=20260918-1"></script>
+<!-- ЛИД-ОКНО: кнопки .js-lead и автопоказ через 10 секунд -->
+<div class="lm" id="lm" hidden>
+  <div class="lm-box" role="dialog" aria-modal="true" aria-labelledby="lmTitle">
+    <button class="lm-x" type="button" id="lmX" aria-label="Закрыть" data-i18n-aria="lm.close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+    </button>
+    <form class="lf" id="lmForm" novalidate>
+      <p class="idx mono"><span class="idx-line"></span><span data-i18n="calc.idx">РАСЧЁТ</span></p>
+      <h3 id="lmTitle" data-i18n="lm.h">Рассчитаем доставку за 15 минут</h3>
+      <p class="lm-l" data-i18n="lm.l">Оставьте заявку - менеджер назовёт цену, сроки и маршрут.</p>
+            <div class="field">
+              <input type="text" id="mName" name="name" autocomplete="name" required placeholder=" ">
+              <label for="mName" data-i18n="calc.name">Ваше имя</label>
+            </div>
+            <div class="field">
+              <input type="tel" id="mPhone" name="phone" autocomplete="tel" inputmode="tel" required placeholder=" ">
+              <label for="mPhone" data-i18n="calc.phone">Телефон</label>
+            </div>
+            <div class="f-row">
+              <div class="field field-sel">
+                <select id="mDir" name="Направление" required>
+                  <option value="" data-i18n="f.pick">Выберите</option>
+                  <option value="Казахстан" data-i18n="f.kz">Казахстан</option>
+                  <option value="Другая страна" data-i18n="f.other">Другая страна</option>
+                </select>
+                <label for="mDir" data-i18n="f.dir">Куда везём</label>
+              </div>
+              <div class="field">
+                <input type="text" id="mKg" name="Вес, кг" inputmode="decimal" placeholder=" ">
+                <label for="mKg" data-i18n="f.kg">Вес, кг (примерно)</label>
+              </div>
+            </div>
+            <div class="field">
+              <textarea id="mMsg" name="comment" rows="2" placeholder=" "></textarea>
+              <label for="mMsg" data-i18n="calc.cargo">Что везём? Груз или ссылка на товар</label>
+            </div>
+            <label class="hp" aria-hidden="true"><input type="text" name="Услуга" tabindex="-1" autocomplete="off"></label>
+            <label class="hp" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+            <p class="f-err" hidden data-i18n="f.err">Укажите имя, телефон и куда везём</p>
+      <button type="submit" class="btn btn-amber btn-lg btn-full"><span data-i18n="f.btn">Отправить заявку</span></button>
+    </form>
+    <div class="thanks" hidden aria-live="polite">
+            <p class="ct-big" data-i18n="calc.thx1">Спасибо!</p>
+            <p data-i18n="calc.thx2">Заявка принята, ответим в течение 15 минут. Если открылся WhatsApp - нажмите «Отправить», чтобы продублировать её.</p>
+            <button class="btn btn-ghost lm-done" type="button" data-i18n="lm.ok">Хорошо</button>
+          </div>
+  </div>
+</div>
+
+<script src="script.js?v=20260928-1"></script>
 </body>
 </html>
