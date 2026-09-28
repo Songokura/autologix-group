@@ -424,10 +424,10 @@
   }
 
   /* ---------- ЦЕНЫ: GOOGLE-ТАБЛИЦА ----------
-     Клиент правит прайс сам: колонки «Вес, кг | Цена, $ | Цена, ₸», строка = вес.
+     Клиент правит прайс сам: колонки «KG | Price $ | Price ₸», строка = вес.
      Читаем export?format=csv (gviz - запасной, он теряет ячейки смешанного типа).
      Таблица недоступна или пустая - остаются цены, зашитые в разметку. */
-  var PRICE_SHEET = 'https://docs.google.com/spreadsheets/d/1dSptQXfJt-TNeoyCd5TjM5IRN_7NwquGpPrv6M76s4Y/';
+  var PRICE_SHEET = 'https://docs.google.com/spreadsheets/d/18TicchlVDVDwX8X3fMMFUtiqyeWew_OM6xOt2-B4-ks/';
   var PRICE_URLS = [PRICE_SHEET + 'export?format=csv', PRICE_SHEET + 'gviz/tq?tqx=out:csv'];
   var NB = ' ';
   var prices = [];
